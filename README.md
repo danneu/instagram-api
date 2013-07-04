@@ -1,4 +1,4 @@
-# gram
+# instagram-api
 
 A restful Instagram client for Clojure.
 
@@ -6,7 +6,7 @@ Inspired by [adamwynne/twitter-api](https://github.com/adamwynne/twitter-api).
 
 ## Usage
 
-The objective of `gram` is to have a flexible, predictable interface that's consistent with Instagram's own documentation.
+The objective of `instagram-api` is to have a flexible, predictable interface that's consistent with Instagram's own documentation.
 
 Each Instagram endpoint is exposed as a method.
 
@@ -16,7 +16,7 @@ Each Instagram endpoint is exposed as a method.
 
 ``` clojure
 (ns my.app
-  (:use [gram.restful]))
+  (:use [instagram-api.restful]))
 
 (def client-id "...")
 (def client-secret "...")
@@ -57,46 +57,46 @@ Instagram Endpoint docs: http://instagram.com/developer/endpoints
 
 ``` clojure
 ;; Users
-(defgram get-users :get "users/:user-id")
-(defgram get-users-feed :get "users/self/feed")
-(defgram get-users-media-recent :get "users/:user-id/media/recent")
-(defgram get-users-media-liked :get "users/self/media/liked")
-(defgram get-users-search :get "users/search")
+(definstagram get-users :get "users/:user-id")
+(definstagram get-users-feed :get "users/self/feed")
+(definstagram get-users-media-recent :get "users/:user-id/media/recent")
+(definstagram get-users-media-liked :get "users/self/media/liked")
+(definstagram get-users-search :get "users/search")
 
 ;; Relationships
-(defgram get-users-follows :get "users/:user-id/follows")
-(defgram get-users-followed-by :get "users/:user-id/followed-by")
-(defgram get-users-requested-by :get "users/self/requested-by")
-(defgram get-users-relationship :get "users/:user-id/relationship")
-(defgram post-users-relationship :post "users/:user-id/relationship")
+(definstagram get-users-follows :get "users/:user-id/follows")
+(definstagram get-users-followed-by :get "users/:user-id/followed-by")
+(definstagram get-users-requested-by :get "users/self/requested-by")
+(definstagram get-users-relationship :get "users/:user-id/relationship")
+(definstagram post-users-relationship :post "users/:user-id/relationship")
 
 ;; Media
-(defgram get-media :get "media/:media-id")
-(defgram get-media-search :get "media/search")
-(defgram get-media-popular :get "media/popular")
+(definstagram get-media :get "media/:media-id")
+(definstagram get-media-search :get "media/search")
+(definstagram get-media-popular :get "media/popular")
 
 ;; Comments
-(defgram get-media-comments :get "media/:media-id/comments")
-(defgram post-media-comments :post "media/:media-id/comments")
-(defgram delete-media-comments :del "media/:media-id/comments/:comment-id")
+(definstagram get-media-comments :get "media/:media-id/comments")
+(definstagram post-media-comments :post "media/:media-id/comments")
+(definstagram delete-media-comments :del "media/:media-id/comments/:comment-id")
 
 ;; Likes
-(defgram get-media-likes :get "media/:media-id/likes")
-(defgram post-media-likes :post "media/:media-id/likes")
-(defgram del-media-likes :del "media/:media-id/likes")
+(definstagram get-media-likes :get "media/:media-id/likes")
+(definstagram post-media-likes :post "media/:media-id/likes")
+(definstagram del-media-likes :del "media/:media-id/likes")
 
 ;; Tags
-(defgram get-tags :get "tags/:tag-name")
-(defgram get-tags-media-recent :get "tags/:tag-name/media/recent")
-(defgram get-tags-search :get "tags/search")
+(definstagram get-tags :get "tags/:tag-name")
+(definstagram get-tags-media-recent :get "tags/:tag-name/media/recent")
+(definstagram get-tags-search :get "tags/search")
 
 ;; Locations
-(defgram get-locations :get "locations/:location-id")
-(defgram get-locations-media-recent :get "locations/:location-id/media/recent")
-(defgram get-locations-search :get "lcoations/search")
+(definstagram get-locations :get "locations/:location-id")
+(definstagram get-locations-media-recent :get "locations/:location-id/media/recent")
+(definstagram get-locations-search :get "lcoations/search")
 
 ;; Geographies
-(defgram get-geographies-media-recent :get "geographies/:geo-id/media/recent")
+(definstagram get-geographies-media-recent :get "geographies/:geo-id/media/recent")
 ```
 
 ## Todo
@@ -104,7 +104,5 @@ Instagram Endpoint docs: http://instagram.com/developer/endpoints
 - Allow a second map that is merged into entire client/request options map to let user interact with http client like {:debug true :throw-entire-message? true :debug-body true}
 
 ## License
-
-Copyright © 2013 Dan Neumann
 
 Distributed under the Eclipse Public License, the same as Clojure.
